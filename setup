@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Move the lootbox binary to a directory in $PATH
+cp lootbox /data/data/com.termux/files/usr/bin/
+
+# Make lootbox executable
+chmod +x /data/data/com.termux/files/usr/bin/lootbox
+
+# Confirm installation
+echo "Installation complete! Type 'lootbox' to execute the tool."
