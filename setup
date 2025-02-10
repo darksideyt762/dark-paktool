@@ -6,10 +6,10 @@ GREEN="\033[32m"
 RED="\033[31m"
 NC="\033[0m" # No Color
 
-# Move 'paktool' binary to a directory in $PATH
-echo -e "${BLUE}[*] Moving 'paktool' to /usr/bin...${NC}"
-cp pak /data/data/com.termux/files/usr/bin/paktool || { 
-    echo -e "${RED}Failed to copy 'paktool'. Exiting...${NC}"; 
+# Move 'darkpak' binary to a directory in $PATH as 'paktool'
+echo -e "${BLUE}[*] Moving 'darkpak' to /usr/bin as 'paktool'...${NC}"
+cp darkpak /data/data/com.termux/files/usr/bin/paktool || { 
+    echo -e "${RED}Failed to copy 'darkpak'. Exiting...${NC}"; 
     exit 1; 
 }
 
