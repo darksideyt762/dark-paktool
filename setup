@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Create a symbolic link
-ln -sf $HOME/dark-paktool $PREFIX/bin/paktool
+ln -sf $HOME/dark-paktool/pak $PREFIX/bin/paktool
 
 # Grant execution permissions
 chmod +x $HOME/dark-paktool/DARKSIDE
