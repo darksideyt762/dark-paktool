@@ -1,10 +1,11 @@
 #!/bin/bash
 
-# Move the lootbox binary to a directory in $PATH
-cp pak /data/data/com.termux/files/usr/bin/
+# Create a symbolic link
+ln -sf $HOME/dark-paktool $PREFIX/bin/paktool
 
-# Make lootbox executable
-chmod +x /data/data/com.termux/files/usr/bin/pak
+# Grant execution permissions
+chmod +x $HOME/dark-paktool/DARKSIDE
+chmod +x $PREFIX/bin/paktool
 
 # Confirm installation
-echo "Installation complete! Type 'pak' to execute the tool."
+echo "Installation complete! Type 'paktool' to execute the tool."
