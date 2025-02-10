@@ -1,11 +1,24 @@
 #!/bin/bash
 
-# Create a symbolic link
-ln -sf $HOME/dark-paktool/pak $PREFIX/bin/paktool
+# Define colors
+BLUE="\033[34m"
+GREEN="\033[32m"
+RED="\033[31m"
+NC="\033[0m" # No Color
 
-# Grant execution permissions
-chmod +x $HOME/dark-paktool/DARKSIDE
-chmod +x $PREFIX/bin/paktool
+# Move 'paktool' binary to a directory in $PATH
+echo -e "${BLUE}[*] Moving 'paktool' to /usr/bin...${NC}"
+cp pak /data/data/com.termux/files/usr/bin/paktool || { 
+    echo -e "${RED}Failed to copy 'paktool'. Exiting...${NC}"; 
+    exit 1; 
+}
 
-# Confirm installation
-echo "Installation complete! Type 'paktool' to execute the tool."
+# Make 'paktool' executable
+echo -e "${BLUE}[*] Making 'paktool' executable...${NC}"
+chmod +x /data/data/com.termux/files/usr/bin/paktool || { 
+    echo -e "${RED}Failed to set executable permissions for 'paktool'. Exiting...${NC}"; 
+    exit 1; 
+}
+
+# Completion message
+echo -e "${GREEN}[✔] Setup complete! You can now execute the tool by typing 'paktool'.${NC}"
