@@ -6,16 +6,32 @@ GREEN="\033[32m"
 RED="\033[31m"
 NC="\033[0m" # No Color
 
-# Move 'darkpak' binary to a directory in $PATH as 'paktool'
+# Define paths
+SOURCE_FILE="$(pwd)/darkpak"
+TARGET_PATH="/data/data/com.termux/files/usr/bin/paktool"
+
+# Check if the source file exists
+if [ ! -f "$SOURCE_FILE" ]; then
+    echo -e "${RED}Error: 'darkpak' not found in the current directory! Exiting...${NC}"
+    exit 1
+fi
+
+# Check if the target file already exists
+if [ -f "$TARGET_PATH" ]; then
+    echo -e "${BLUE}[*] 'paktool' already exists. Replacing it...${NC}"
+    rm -f "$TARGET_PATH"
+fi
+
+# Move 'darkpak' to /usr/bin as 'paktool'
 echo -e "${BLUE}[*] Moving 'darkpak' to /usr/bin as 'paktool'...${NC}"
-cp darkpak /data/data/com.termux/files/usr/bin/paktool || { 
+cp "$SOURCE_FILE" "$TARGET_PATH" || { 
     echo -e "${RED}Failed to copy 'darkpak'. Exiting...${NC}"; 
     exit 1; 
 }
 
 # Make 'paktool' executable
 echo -e "${BLUE}[*] Making 'paktool' executable...${NC}"
-chmod +x /data/data/com.termux/files/usr/bin/paktool || { 
+chmod +x "$TARGET_PATH" || { 
     echo -e "${RED}Failed to set executable permissions for 'paktool'. Exiting...${NC}"; 
     exit 1; 
 }
